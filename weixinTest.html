@@ -5,7 +5,6 @@
 	<title>test</title>
 </head>
 <body>
-	<h1>hello QiyeWeChat</h1>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
 		
@@ -25,20 +24,36 @@
 		wx.ready(function(){
 		    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 		    console.log('success')
-		  	wx.checkJsApi({
-		    jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-		    success: function(res) {
-		    	alert('调用成功')
-		    	console.log(111111111111111)
-		        // 以键值对的形式返回，可用的api值true，不可用为false
-		        // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-		    },
-		   	error: function(res){
-		   		console.log('failed')
-		   		alert('调用失败')
-		   	}
+		  	alert('连接成功')
 
+		  	wx.agentConfig({
+			    corpid: 'ww9fe1a914380ab1eb', // 必填，企业微信的corpid，必须与当前登录的企业一致
+			    agentid: '1000002', // 必填，企业微信的应用id
+			    timestamp: Date.now(), // 必填，生成签名的时间戳
+			    nonceStr: '11111', // 必填，生成签名的随机串
+			    signature: 'kgt8ON7yVITDhtdwci0qeYbJKtHuUjBAWmZ4bAlBwavBsiM9BMtzR1motfrJcpf8yjwx29aWbnKivRWG48pD8g',// 必填，签名，见附录1
+			    jsApiList: ['selectExternalContact'], //必填
+			    success: function(res) {
+			    	let userIds;
+			        // 回调
+			        wx.invoke('selectExternalContact', {
+                        "filterType": 0, //0表示展示全部外部联系人列表，1表示仅展示未曾选择过的外部联系人。默认值为0；除了0与1，其他值非法。在企业微信2.4.22及以后版本支持该参数
+			        }, function(res){
+			        if(res.err_msg == "selectExternalContact:ok"){
+			            userIds  = res.userIds ; //返回此次选择的外部联系人userId列表，数组类型
+			            alert('选择联系人')
+			        }else {
+			            //错误处理
+			        }
+			    });
+			    },
+			    fail: function(res) {
+			        if(res.errMsg.indexOf('function not exist') > -1){
+			            alert('版本过低请升级')
+			        }
+			    }
 			});
+
 		});
 
 		wx.error(res=>{
