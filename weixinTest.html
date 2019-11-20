@@ -27,7 +27,8 @@
 		    signature: signature,// 必填，签名，见 附录-JS-SDK使用权限签名算法
 		    jsApiList: [
 		    	'onMenuShareAppMessage',
-		    	'selectExternalContact'
+		    	'selectExternalContact',
+		    	'getCurExternalContact'
 		    ] // 必填，需要使用的JS接口列表，凡是要调用的接口都需要传进来
 		});
 		wx.ready(function(){
@@ -43,7 +44,7 @@
 			    timestamp: timestamp, // 必填，生成签名的时间戳
 			    nonceStr: noncestr, // 必填，生成签名的随机串
 			    signature: signature_agent,// 必填，签名，见附录1
-			    jsApiList: ['selectExternalContact'], //必填
+			    jsApiList: ['selectExternalContact','getCurExternalContact'], //必填
 			    success: function(res) {
 			    	let userIds;
 			        // 回调
