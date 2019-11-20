@@ -8,6 +8,7 @@
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
 		let jsapi_ticket,noncestr,timestamp,url,string1,signature
+		let jsapi_ticket_agent,string2,signature_agent
 		 jsapi_ticket = 'kgt8ON7yVITDhtdwci0qeYbJKtHuUjBAWmZ4bAlBwavCWmS8hVLpmYqL-5BUpaYps1VXbRWVydj8Mi6u_VXC5A'
 		 noncestr = '000000'
 		 timestamp = Date.now()
@@ -32,13 +33,15 @@
 		    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
 		    console.log('success')
 		  	alert('连接成功')
-
+		  	jsapi_ticket_agent = '7aebdcb2f5a3699f5adeebb0763a798a'
+		  	string2 = `jsapi_ticket=${jsapi_ticket_agent}&noncestr=${noncestr}&timestamp=${timestamp}&url=${url}`
+			signature_agent = sha1(string2)
 		  	wx.agentConfig({
 			    corpid: 'ww9fe1a914380ab1eb', // 必填，企业微信的corpid，必须与当前登录的企业一致
 			    agentid: '1000002', // 必填，企业微信的应用id
-			    timestamp: Date.now(), // 必填，生成签名的时间戳
-			    nonceStr: '11111', // 必填，生成签名的随机串
-			    signature: '2f3b2884e1b55717303a86f67d1718a7',// 必填，签名，见附录1
+			    timestamp: timestamp, // 必填，生成签名的时间戳
+			    nonceStr: noncestr, // 必填，生成签名的随机串
+			    signature: signature_agent,// 必填，签名，见附录1
 			    jsApiList: ['selectExternalContact'], //必填
 			    success: function(res) {
 			    	let userIds;
