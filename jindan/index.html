@@ -50,6 +50,7 @@
 				<img class="chuizi" src="img/chuizi.gif"/>
 				<!--这里根据用户信息决定是用sheng1还是sheng0-->
 				<img class="sheng1" src="img/sheng0.png"/>
+				<img class="shoujidajiang" src="img/shoujidajiang.png" alt="">
 			</div>
 			<button class="checkPrize" onclick="myPrizeList()"><strong>我的奖品</strong></button>
 			<button class="checkPrize" onclick="toShare()"><strong>增加抽奖资格</strong></button>
@@ -285,8 +286,7 @@
 	<script>
 		window.onload = ()=>{
 			$('#login').show()
-			alert(document.documentElement.clientWidth)
-			alert(document.documentElement.clientHeight)
+			
 		}
 		function showDataDetail(){
 			$(".modal").hide()
