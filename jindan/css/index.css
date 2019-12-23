@@ -683,7 +683,7 @@ body {
 
 @media screen and (max-width: 360px) and (min-height: 572px) and (max-height: 573px) {}
 
-@media screen and (min-width: 375px) and (min-height: 812px) {
+@media screen and (min-width: 350px) and (min-height: 680px) {
 	.page {
 		height: 100%;
 	}
