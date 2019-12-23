@@ -1,0 +1,29 @@
+.sharePtc{
+	position: relative;
+	top: 1rem;
+	margin-bottom: 1rem;
+}
+.sharePtc img{
+	width: 6rem;
+	height: 9.73rem;
+}
+
+.word{
+	font-size: .4rem;
+	position: absolute;
+	top: 10rem;
+	left: 2.5rem;
+	font-weight: 700;
+	
+}
+
+
+@media screen and (max-width: 375px)  and (min-height: 812px){
+    .sharePtc img{
+		height: 12rem;
+	}
+	
+	.word{
+		top: 12.4rem;
+	}
+}
