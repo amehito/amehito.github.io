@@ -14,6 +14,7 @@
     <meta http-equiv="Cache-Control" content="no-store, must-revalidate">
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/iconfont.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
 
 	<script>
 		(function (doc, win) {
@@ -127,6 +128,79 @@
 				line-height: 2px;
 
 		}
+		.modal {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			z-index: 500;
+		}
+		.bgcolor {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, .7);
+			position: absolute;
+			top: 0;
+			overflow: hidden;
+		}
+		.close11 {
+			border: 2px solid white;
+			width: .6rem;
+			height: .6rem;
+			color: white;
+			position: absolute;
+			right: 13%;
+			top: 25%;
+			z-index: 100;
+			border-radius: 50%;
+			font-size: .5rem;
+			line-height: .55rem;
+			text-align: center;
+		}
+		.close {
+			border: 2px solid white;
+			width: .6rem;
+			height: .6rem;
+			color: white;
+			position: absolute;
+			right: 13%;
+			top: 25%;
+			z-index: 100;
+			border-radius: 50%;
+			font-size: .5rem;
+			line-height: .55rem;
+			text-align: center;
+		}
+		.modalBg1 {
+			width: 7.6rem;
+			height:11.8rem;
+			background: url(./images/alertBg.png) no-repeat;
+			background-size: 100% 100%;
+			position: absolute;
+			/*top: 2rem;
+			left: .95rem;*/
+		}
+		.mbm1{
+			color: white;
+			font-size: .36rem;
+			font-family: "微软雅黑";
+			margin-top: 3.9rem;
+			font-weight: 800;
+		}
+
+		.mbm2{
+			width: 60%;
+			margin:0 auto;
+			color: white;
+			/*font-size: .25rem;*/
+			font-size: 21%;
+			margin-top: .2rem;
+		}
+		.mbm2Title{
+			font-size: 0.35rem;
+		}
 	</style>
 </head>
 <body>
@@ -169,6 +243,23 @@
 			<p class="infoText">送货时间：工作日8:30-17:30</p>
 
 		</div>
+
+
+		<div class="modal"   style="display: none;" id="err">
+		    <div class="bgcolor">
+		      	<div class="modalBg1">
+		        	<div class="mbm1">
+		        		
+		        	</div>
+		        	<div style="height: 10%"></div>
+		        	<div class="mbm2">
+		        		<p class="mbm2Title"><strong>对不起，您不是目标用户</strong></p>
+		        		<p class="mbm2Title"><strong>谢谢您的参与</strong></p>
+		        	</div>
+		        </div>
+		        <span class="close close11">X</span>
+		    </div>
+		</div>
 	</div>
 	<script type="text/javascript">
 
@@ -180,9 +271,13 @@
 		    return true
 		}
 		
-		document.querySelector('.page').style.height=document.documentElement.clientHeight+'px'
-
-		
+		document.querySelector('.bg').style.height=document.documentElement.clientHeight+'px'
+		window.onload = ()=>{
+			$('#err').show()
+		}
+		$(".close").click(function() {
+			$(".modal").hide();
+		});
 		
 
 	</script>
