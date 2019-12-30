@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>托克小助手</title>
+	<title>上门补换卡登记</title>
 
 	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no"/>
@@ -42,7 +42,7 @@
 			text-align: center;
 		}
 		.bg{
-			height: 100%;
+			height: 15rem;
 			width: 100%;
 			background-image: url('./images/bg.png') ;
 			background-repeat: no-repeat;
@@ -150,14 +150,14 @@
 			  <span class="input-group-addon" id="basic-addon1">
 			  	<span class="glyphicon glyphicon-earphone"></span>
 			  </span>
-			  <input type="text" class="form-control" placeholder="请输入手机号" aria-describedby="basic-addon1">
+			  <input type="number" class="form-control" placeholder="请输入手机号" aria-describedby="basic-addon1">
 			</div>
 			<div class="yanzhengma">
 				<div class="input-group">
 			  <span class="input-group-addon" id="basic-addon1">
 				<span class="iconfont iconyanzhengma"></span>
 			  </span>
-			  <input type="text" class="form-control" placeholder="请输入验证码" aria-describedby="basic-addon1">
+			  <input type="number" class="form-control" placeholder="请输入验证码" aria-describedby="basic-addon1">
 			  <button class="huoquyanzhengma">获取验证码</button>
 			</div>
 			</div>
@@ -180,13 +180,7 @@
 		    return true
 		}
 		
-		document.querySelector('#login').addEventListener('click',()=>{
-			const phoneNumber = document.querySelector('.form-control').value
-			if(checkPhone(phoneNumber)){
-				const url = './addAlready.html?phoneNumber='+phoneNumber
-				window.location.href=url
-			}
-		})
+		document.querySelector('.page').style.height=document.documentElement.clientHeight+'px'
 
 		
 		
