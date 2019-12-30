@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>托克小助手</title>
+
+	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/iconfont.css">
+
+	<script>
+		(function (doc, win) {
+		    var docEl = doc.documentElement,
+		        resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+		        recalc = function () {
+		            var clientWidth = docEl.clientWidth;
+		            if (!clientWidth) return;
+		            if(clientWidth>=750){
+		                docEl.style.fontSize = '100px';
+		            }else{
+		                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+		            }
+		        };
+		    if (!doc.addEventListener) return;
+		    win.addEventListener(resizeEvt, recalc, false);
+		    doc.addEventListener('DOMContentLoaded', recalc, false);
+		})
+		(document, window);
+	</script>
+
+	<style>
+		body,html{
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+		.bg{
+			height: 100%;
+			width: 100%;
+			background-image: url('./images/bg.png') ;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+		}
+
+		.inputGroup{
+			height: 20%;
+			width: 65%;
+			bottom: 5em;
+			margin: auto;
+		}
+		#login{
+			margin-top: 1em;
+			width: 100%;
+		}
+		img{
+			width: 8em;
+		}
+		.logDiv{
+		}
+		
+		.infoText{
+			text-align: center;
+			margin-bottom: 0;
+		}
+		.info{
+			font-family: serif;
+			font-size: 0.4em;
+			color: red;
+			width: 90%;
+   	 		margin: 0 auto;
+		}
+		.zhutuwenzi img{
+			width: 100%;
+		}
+		.logDiv img{
+			width: 70%;
+		}
+		.leftLogo{
+			position: absolute;
+			left: 0;
+
+		}
+		.rightLogo{
+			position: absolute;
+			right: 0;
+		}
+		.zhutuwenzi img{
+			margin-top: 1rem;
+		}
+		.inputGroup span{
+			border:none;
+			background-color: #fff;
+		}
+		.inputGroup input{
+			border:none;
+		}
+		.inputGroup span{
+			color: rgb(56,83,252);
+		}
+		.yanzhengma{
+			margin-top: 0.15rem;
+		}
+		.checkCode{
+			background-image: :url(./images/checkCode.svg);
+		}
+		.huoquyanzhengma{
+			    position: absolute;
+			    width: 1.6rem;
+			    font-size: 12px;
+			    right: 3px;
+			    z-index: 3;
+			    top: 0.4em;
+			    height: 2em;
+			    border-radius: 2em;
+			    border: none;
+			    color: white;
+			    background-color: rgb(55,82,252);
+			    vertical-align:middle;
+				line-height: 2px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="bg">
+		<div class="topLogo">
+			<div class="leftLogo">
+				<img src="./images/leftLogo.png" alt="">
+			</div>
+			<div class="rightLogo">
+				<img src="./images/rightLogo.png" alt="">
+			</div>
+		</div>
+		<div class="zhutuwenzi">
+			<img src="./images/buhuanka.png" alt="">
+		</div>
+		<div class="logDiv">
+			<img src="./images/zhutu.png" alt="">
+		</div>
+		<div class="inputGroup">
+			<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon1">
+			  	<span class="glyphicon glyphicon-earphone"></span>
+			  </span>
+			  <input type="text" class="form-control" placeholder="请输入手机号" aria-describedby="basic-addon1">
+			</div>
+			<div class="yanzhengma">
+				<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon1">
+				<span class="iconfont iconyanzhengma"></span>
+			  </span>
+			  <input type="text" class="form-control" placeholder="请输入验证码" aria-describedby="basic-addon1">
+			  <button class="huoquyanzhengma">获取验证码</button>
+			</div>
+			</div>
+			<button class="btn btn-primary" id="login">立即登记</button>
+		</div>
+		<div class="info">
+			<h5><strong>温馨提示</strong></h5>
+			<p class="infoText">目前仅支持鹿城、瓯海、龙湾区范围内部分区域送货</p>
+			<p class="infoText">送货时间：工作日8:30-17:30</p>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		function checkPhone(phone){ 
+		    if(!(/^1[3456789]\d{9}$/.test(phone))){ 
+		        alert("手机号码有误，请重填")  
+		        return false
+		    } 
+		    return true
+		}
+		
+		document.querySelector('#login').addEventListener('click',()=>{
+			const phoneNumber = document.querySelector('.form-control').value
+			if(checkPhone(phoneNumber)){
+				const url = './addAlready.html?phoneNumber='+phoneNumber
+				window.location.href=url
+			}
+		})
+
+		
+		
+
+	</script>
+</body>
+</html>
