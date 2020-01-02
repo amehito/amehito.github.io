@@ -8,6 +8,21 @@
     background-size: 100% 100%;
     padding-top: 4rem;
 }
+
+.top img{
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    left: 0;
+    top:0;
+}
+.bottom img{
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+}
 .wrap{
     width: 6.07rem;
     position: relative;
@@ -41,7 +56,7 @@
     min-height: 100%;
     position: relative;
     overflow: hidden;
-    background: url("../img/bg2019.png") no-repeat;
+    background: url("../img/bg2020.png") no-repeat;
     background-size: 100% 100%;
     padding-top: 4.5rem;
 }
