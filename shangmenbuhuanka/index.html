@@ -42,18 +42,63 @@
 			height: 100%;
 			text-align: center;
 		}
+		table.gridtable {
+			width: 100%;
+			margin: 0 auto;
+			font-family: verdana,arial,sans-serif;
+			font-size:11px;
+			color:#333333;
+			border-width: 1px;
+			border-color: #666666;
+			border-collapse: collapse;
+			text-align: center;
+			}
+			table.gridtable th {
+				text-align: center;
+				min-width: 1.2rem;
+				padding: 3px 2px;
+				border-style: solid;
+				border-color: #666666;
+				background-color: rgb(64,103,250);
+				color:white;
+				border:1px solid rgb(70,120,250);
+
+			}
+			table.gridtable td {
+				border:1px solid #4478fa;
+				min-width: 1.2rem;
+				padding: 3px 2px;
+				border-style: solid;
+				border-color: #666666;
+				background-color: rgb(220,239,249);
+				color: #4478fa;
+			}
+			table tr {
+				border-bottom:  1px solid #4478fa ;
+			}
+			.tableDate{
+				background-color: rgb(133,193,230);
+
+			}
+			.table{
+				width: 80%;
+			    max-width: 100%;
+			    /* margin-bottom: 20px; */
+			    margin: 1em auto;
+			    border-radius: 5px;
+			}
 		.bg{
-			height: 15rem;
+			height: 17rem;
 			width: 100%;
 			background-image: url('./images/bg.png') ;
 			background-repeat: no-repeat;
 			background-size: cover;
 
-		}
+			}
 
 		.inputGroup{
-			height: 20%;
-			width: 65%;
+/*			height: 20%;
+*/			width: 65%;
 			bottom: 5em;
 			margin: auto;
 		}
@@ -77,12 +122,13 @@
 			color: red;
 			width: 90%;
    	 		margin: 0 auto;
+   	 		/*padding-top: 1.2rem;*/
 		}
 		.zhutuwenzi img{
 			width: 100%;
 		}
 		.logDiv img{
-			width: 70%;
+			width: 60%;
 		}
 		.leftLogo{
 			position: absolute;
@@ -107,14 +153,14 @@
 			color: rgb(56,83,252);
 		}
 		.yanzhengma{
-			margin-top: 0.15rem;
+			margin-top: 0.1rem;
 		}
 		.checkCode{
 			background-image: :url(./images/checkCode.svg);
 		}
 		.huoquyanzhengma{
 			    position: absolute;
-			    width: 1.6rem;
+			    width: 1.7rem;
 			    font-size: 12px;
 			    right: 3px;
 			    z-index: 3;
@@ -201,6 +247,9 @@
 		.mbm2Title{
 			font-size: 0.35rem;
 		}
+		.inputG {
+			margin-top: 0.1rem;
+		}
 		@media screen and (min-width: 350px) and (min-height: 800px) {
 			.close {
 			border: 2px solid white;
@@ -236,14 +285,20 @@
 			<img src="./images/zhutu.png" alt="">
 		</div>
 		<div class="inputGroup">
-			<div class="input-group">
+			<div class="input-group inputG">
 			  <span class="input-group-addon" id="basic-addon1">
 			  	<span class="glyphicon glyphicon-earphone"></span>
 			  </span>
 			  <input type="number" class="form-control" placeholder="请输入手机号" aria-describedby="basic-addon1">
 			</div>
+			<div class="input-group inputG">
+			  <span class="input-group-addon" id="basic-addon1">
+			  	<span class="glyphicon glyphicon-earphone"></span>
+			  </span>
+			  <input type="number" class="form-control" placeholder="请输入联系号码" aria-describedby="basic-addon1">
+			</div>
 			<div class="yanzhengma">
-				<div class="input-group">
+			<div class="input-group">
 			  <span class="input-group-addon" id="basic-addon1">
 				<span class="iconfont iconyanzhengma"></span>
 			  </span>
@@ -256,10 +311,24 @@
 		<div class="info">
 			<h5><strong>温馨提示</strong></h5>
 			<p class="infoText">目前仅支持鹿城、瓯海、龙湾区范围内部分区域送货</p>
-			<p class="infoText">送货时间：工作日8:30-17:30</p>
-
 		</div>
-
+		
+		<div class="table">
+			<table class="gridtable">
+				<tr>
+				<th >县市</th><th>配送区域</th><th>时间</th>
+				</tr>
+				<tr>
+				<td >鹿城</td><td >温州市中区域</td><td >工作日9:00-17:00</td>
+				</tr>
+				<tr>
+				<td >龙湾</td><td >龙湾蒲州区域</td><td >工作日9:00-17:00</td>
+				</tr>
+				<tr>
+				<td >瓯海</td><td >瓯海梧田区域</td><td >工作日9:00-17:00</td>
+				</tr>
+			</table>
+		</div>
 
 		<div class="modal"   style="display: none;" id="err">
 		    <div class="bgcolor">
@@ -276,6 +345,7 @@
 		        <span class="close close11">X</span>
 		    </div>
 		</div>
+
 	</div>
 	<script type="text/javascript">
 
@@ -287,7 +357,7 @@
 		    return true
 		}
 		
-		document.querySelector('.bg').style.height=document.documentElement.clientHeight+'px'
+	//	document.querySelector('.bg').style.height=document.documentElement.clientHeight+'px'
 		window.onload = ()=>{
 			$('#err').show()
 		}
