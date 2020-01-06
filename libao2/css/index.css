@@ -15,6 +15,7 @@
     z-index: 3;
     left: 0;
     top:0;
+    pointer-events: none;
 }
 .bottom {
     pointer-events: none;
@@ -23,7 +24,7 @@
     position: absolute;
     width: 100%;
     z-index: 3;
-    bottom: 0;
+    top:14rem;
     left: 0;
 }
 .wrap{
