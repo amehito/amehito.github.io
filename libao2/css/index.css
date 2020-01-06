@@ -16,6 +16,9 @@
     left: 0;
     top:0;
 }
+.bottom {
+    pointer-events: none;
+}
 .bottom img{
     position: absolute;
     width: 100%;
