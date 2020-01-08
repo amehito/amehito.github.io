@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>砸金蛋</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+		<link rel="stylesheet" href="css/reset.css">
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/index.css">
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script>
+			(function (doc, win) {
+			    var docEl = doc.documentElement,
+			        resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+			        recalc = function () {
+			            var clientWidth = docEl.clientWidth;
+			            if (!clientWidth) return;
+			            if(clientWidth>=750){
+			                docEl.style.fontSize = '100px';
+			            }else{
+			                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+			            }
+			        };
+			    if (!doc.addEventListener) return;
+			    win.addEventListener(resizeEvt, recalc, false);
+			    doc.addEventListener('DOMContentLoaded', recalc, false);
+			})
+			(document, window);
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<span class="huodong">活动规则></span>
+			<!--<span class="acount">当前用户：13958841398</span>
+			<span class="kefu"></span>-->
+		</header>
+		
+		<div class="page">
+			<div class="jidan">
+				<span class="qian" style="display: block;"><img class="jindan_qian"  src="img/jindan_qian.png"/></span>
+				<span class="hou" style="display: none;"><img class="jindan_hou"   src="img/jindan_2020.png"/></span>
+				<img class="chuizi" src="img/chuizi.gif"/>
+				<!--这里根据用户信息决定是用sheng1还是sheng0-->
+				<img class="sheng1" src="img/sheng0.png"/>
+				<img class="shoujidajiang" src="img/shoujidajiang.png" alt="">
+			</div>
+			<button class="checkPrize" onclick="myPrizeList()"><strong>我的奖品</strong></button>
+			<button class="checkPrize" onclick="toShare()"><strong>增加抽奖资格</strong></button>
+			
+		</div>
+		
+		<!--很抱歉-->
+		<div class="modal"   style="display: none;">
+		    <div class="bgcolor">
+		        <div class="modalBg1">
+		        	<div class="mbm3">
+		        		<!--很抱歉-->
+		        	</div>
+		        	<div class="mbm4">
+		        		<!--您来晚了，当月话费已送完！-->
+		        		请先点击下方按钮完成任一签到任务
+		        	</div>
+		        	<div class="back"></div>
+		        </div>
+		        <span class="close close11">X</span>
+		    </div>
+		</div>
+		
+
+
+	
+		
+		<!--活动规则-->
+		<div class="modal" id="rule" style="display: none;" >
+		    <div class="bgcolor">
+		        <div class="modalBg3">
+		        	<div class="pitch2">
+			        	<div class="gz_bg">
+			                <dl class="list">
+				              <dt>【活动时间】</dt>
+                    <dd>2019年12月20日-2020年1月2日</dd>
+                    <dt>【参与条件】</dt>
+                    <dd>本活动仅限温州移动幸运用户参与</dd>
+                    <dt>【活动内容】</dt>
+                    <dd>首次进入活动的用户获得一次砸金蛋机会，用户邀请好友（有好友扫码）即可增加一次砸金蛋机会，每人最多有2次砸金蛋机会。</br>
+                     
+                    </dd>
+                    <dt>【活动奖品】</dt>
+                    <dd>
+                     5G手机1部：幸运用户砸中"5G荣耀V30手机" 将于活动后15个工作日电话通知领取方式，请保持手机通畅。
+                     </br>
+         5GB流量包10万份：幸运用户砸中"5GB流量包"，中奖后15个工作日内开通，体验到期后自动取消。5GB流量为全国流量，除港澳台外。优先级为在套餐流量前使用。如用户已经拥有5GB流量包业务，则不叠加享受该优惠。若用户不需要受理该业务，可至"温州移动"公众号回复"取消5GB流量包"进行退订。
+                    </dd>
+                    <dt>【特别说明】</dt>
+                    <dd>
+                     同一个微信号和手机号只能享受一次活动优惠，重复绑定多个微信号无效。若通过非法技术手段盗取活动奖品，我公司有权停止活动收回奖品，并追究法律责任
+                     
+                    </dd>
+                 <dt style="margin-bottom: 1rem;"></dt>
+                   </dl>
+			        	</div>
+			        </div>
+			    </div> 
+		        <span class="close close4">X</span>
+		    </div>
+		</div>
+		
+		
+		<!--领取成功-->
+		<div class="modal" id="suc"  style="display: none;">
+		    <div class="bgcolor">
+		        <div class="modalBg1">
+		        	<div class="mbm1">
+		        		恭喜您获得
+		        	</div>
+		        	<div class="mbm2">
+		        		<p class="mbm2Title"><strong>5G流量包/语音包</strong></p>	        		
+		        		<p>中奖后15个工作日内开通，
+		        		
+		        	体验到期后
+		    	    </br>自动取消。如用户已经拥有5G流量包/
+				    语</br>音包业务，则不叠加享受该优惠。
+					若用户不需要受理该业务，可至“
+					温州移动”公</br>众号回复“取消”进行退订。</p>
+		        	</div>
+		        	<div class="back"></div>
+		        </div>
+		        <span class="close close11">X</span>
+		    </div>
+		</div>
+		
+		<!--很抱歉-->
+		<div class="modal"   style="display: none;" id="err">
+		    <div class="bgcolor">
+		        <div class="modalBg1">
+		        	<div class="mbm1">
+		        		
+		        	</div>
+		        	<div style="height: 10%"></div>
+		        	<div class="mbm2">
+		        		<p class="mbm2Title"><strong>很抱歉，您不是本次活动的幸运用户</strong></p>
+		        	</div>
+		        </div>
+		        <span class="close close11">X</span>
+		    </div>
+		</div>
+		
+		<!-- 5G手机 -->
+		
+		
+		<div class="modal" id="5GPhone"  style="display: none;">
+			    <div class="bgcolor">
+			        <div class="modalBg1">
+			        	<div class="mbm1">
+			        		恭喜您获得
+			        	</div>
+
+			        	<!-- 改动部分 -->
+			        	<div class="mbm2">
+			        		<p class="mbm2Title"><strong>5G荣耀V30手机一部</strong></p>	
+
+			        		<img src="./img/shouji.png" alt="" style="width: 1.2rem">	
+			        		<p style="color: yellow;">将于活动结束后15个工作日电话通知领取方式，请保持手机通畅
+
+			        		</p>
+			        	
+			        	</div>
+			        	<!-- 改动部分 -->
+			        	
+			        </div>
+			        <span class="close close11">X</span>
+			    </div>
+			</div>
+
+	<div class="modal" id="prizeListModel"  style="display: none;">
+			    <div class="bgcolor">
+			        <div class="modalBg1">
+			        	<div class="mbm1">
+			        		我的奖品
+			        	</div>
+			        	<div class="prizeItem" style="">
+			        		<div style="display: inline-block;">
+			        			<p>5Gxxxx手机一部</p>
+			        			<p>2019-12-25 11：30：20</p>
+			        		</div>
+			        		<button onclick="showPhoneInfo()" ><strong>领取说明</strong></button>
+			        	</div>
+			        	<div class="bottomLine"></div>
+
+			        	<div class="prizeItem">
+			        		<div style="display: inline-block;">
+			        			<p>5G流量包/语音包</p>
+			        			<p>2019-12-25 11：30：20</p>
+			        		</div>
+			        		<button onclick="showDataDetail()"><strong>查看详情
+			        		</strong></button>
+			        	</div>
+			        	<div class="bottomLine"></div>
+			        	<div class="prizeItem">
+			        		<div style="display: inline-block;">
+			        			<p>抽奖次数*1</p>
+			        			<p>2019-12-25 11：30：20</p>
+			        		</div>
+			        	</div>
+			        </div>
+			        <span class="close close11">X</span>
+			    </div>
+			</div>
+
+
+			<div class="modal" id="dataDetail"  style="display: none;">
+			    <div class="bgcolor">
+			        <div class="modalBg1">
+			        	<!-- 改动部分 -->
+			        	<div class="mbm1">
+			        		5G荣耀V30手机一部
+			        	</div>
+			        	<div class="bottomDashed"></div>
+			        	<img src="./img/shouji.png" alt="" style="width: 1.2rem">	
+			        	<div class="mbm2">
+			        		<p style="color: yellow">
+			        			将于活动结束后15个工作日电话通知领取方式，请保持手机畅通
+			        		</p>
+			        	</div>
+			        	<!-- 改动部分 -->
+			        </div>
+			        <span class="close close11">X</span>
+			    </div>
+			</div>
+
+
+			<div class="modal" id="phoneInfo"  style="display: none;">
+			    <div class="bgcolor">
+			        <div class="modalBg1">
+			        	<div class="mbm1">
+			        		5G流量包/语音包
+			        	</div>
+			        	<div class="bottomDashed"></div>
+			        	<div class="mbm2">
+			        		<p style="color: yellow">
+			        		中奖后15个工作日内开通，
+				        	体验到期后
+				    	    </br>自动取消。如用户已经拥有5G流量包/
+						    语</br>音包业务，则不叠加享受该优惠。
+							若用户不需要受理该业务，可至“
+							温州移动”公</br>众号回复“取消”进行退订。
+			        		</p>
+			        	</div>
+			        </div>
+			        <span class="close close11">X</span>
+			    </div>
+			</div>
+			<div class="modal" id="login"  style="display: none;">
+			    <div class="bgcolor">
+			        <div class="modalBg1">
+			        	<div class="mbm1">
+			        		用户登录
+			        	</div>
+			        	<div class="inputGroup">
+			        		<div class="telephoneDiv"><p>手机</p></div>
+			        		<input type="tel" placeholder="请输入你的手机号">
+			        	</div>
+			        	<div class="inputGroup" style="position: relative;margin:0.1rem auto;width:60%">
+			        		<div class="telephoneDiv"><p>验证码</p></div>
+			        		<input type="tel" placeholder="请输入验证码" >
+			        		<!-- <input type="button" value="获取验证码" style="width: 5em;border-left: none;background-color: rgb(253,173,68);color: white;"> -->
+			        		<button class="yanzhengmaBtn">获取验证码</button>
+			        	</div>
+				        	<button class="loginNow"><strong>立即登录</strong></button>
+				        <span class="close close11">X</span>
+				    </div>
+				</div>
+			</div>
+	
+		
+	</body>
+
+	<script>
+		window.onload = ()=>{
+			$('#login').show()
+			
+		}
+		function showDataDetail(){
+			$(".modal").hide()
+			$("#dataDetail").show()
+		}
+		function showPhoneInfo(){
+			$(".modal").hide()
+			$("#phoneInfo").show()
+		}
+		function myPrizeList(){
+			$('#prizeListModel').show();
+		}
+		function toShare(){
+			window.location.href = './share.html'
+		}
+		$(".huodong").click(function() {
+			$("#rule").show();
+		});
+		
+		$(".close").click(function() {
+			$(".modal").hide();
+		});
+		
+		$(".back").click(function() {
+			$(".modal").hide();
+		}); 
+		
+		$(".jindan_qian,.chuizi,.sheng1").bind("click",function(){
+			$(".jindan_qian").addClass("shake");
+			setTimeout(function(){
+				$(".jindan_qian").removeClass("shake");	
+				$(".qian").hide();
+	  			$(".hou").show();
+	  			$(".chuizi").hide();
+	  			$(".sheng1").hide();
+			},1000)
+			setTimeout(function(){
+				$("#5GPhone").show();
+			},2000)
+  		});
+		
+		function checkPhone(){
+			var x=document.getElementById("phoneN").value;
+			if(x.length<11){
+				alert("请输入11位手机号");
+			}
+		}
+		
+		(function(){
+			window.alert = function(name){
+			var iframe = document.createElement("IFRAME");
+			iframe.style.display="none";
+			iframe.setAttribute("src", 'data:text/plain');
+			document.documentElement.appendChild(iframe);
+			window.frames[0].window.alert(name);
+			iframe.parentNode.removeChild(iframe);
+			}
+		})();
+	</script>
+	
+
+</html>

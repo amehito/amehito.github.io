@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分享图</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="http://cdn.staticfile.org/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+	<style>
+		html {
+			height: 100%;
+			width: 100%;
+			overflow-x: hidden;
+		}
+		body {
+			
+			text-align: center;
+			overflow-x: hidden;
+		}
+		.bottomContext{
+			color: yellow;
+			font-size: 0.5em;
+			margin:0 auto;
+			position: relative;
+			height: 20%;
+		}
+		.bg{
+			background: url(./img/share.png) no-repeat;
+			background-size: 100% 100%;
+			/*overflow: hidden;*/
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			font-family: "微软雅黑";
+			top: 0;
+			left: 0;
+		}
+		.qrCodeDiv{
+			position: relative;
+			height: 40%;
+		}
+		.qrContext {
+			color: white;
+			display: inline-block;
+			top: -1em;
+			position: relative;
+			bottom: 2em;
+		}
+		.qrCode{
+			display: inline-block;
+			width: 5em;
+			height: 5em;
+			margin-right: 2em;
+			margin-top: 1em;
+			bottom: 2em;
+
+		}
+		.paddingDiv{
+			height: 40%;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="bg">
+		<div class="paddingDiv"></div>
+		<div class="qrCodeDiv">
+			<div class="qrCode">
+				
+			</div>
+			<div class="qrContext">
+				<p><strong>长按识别二维码</strong></p>
+				<p><strong>5G手机等你拿</strong></p>
+			</div>
+		</div>
+		<div class="bottomContext">
+			<p>微信搜索公众号'温州移动',</p>
+			<p>关注即可参加更多活动……</p>
+		</div>
+	</div>
+	<script>
+	var link = document.createElement("a");      
+    link.href = 'http://ts.owikio.com/business/img/banner.png';  
+
+    link.style = "visibility:hidden";  
+    link.download = 'img.png';  
+    
+    document.body.appendChild(link);  
+    link.click();  
+    document.body.removeChild(link);  
+		$(".qrCode").qrcode({
+			render: "table", //table方式
+			width: 80, //宽度
+			height:80, //高度
+			text: "www.helloweba.net" //任意内容
+		});
+	</script>
+</body>
+</html>
