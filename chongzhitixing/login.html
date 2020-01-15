@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>托克小助手</title>
+	<title>话费充值提醒</title>
 
 	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no"/>
@@ -64,7 +64,7 @@
 		.iconfont20 {
 			color: red;
 			font-family: "iconfont" !important;
-			font-size: 14px;
+			font-size: 16px;
 			font-style: normal;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -72,7 +72,7 @@
 		.iconfont {
 			color: red;
 			font-family: "iconfont" !important;
-			font-size: 16px;
+			font-size: 14px;
 			font-style: normal;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -86,7 +86,23 @@
 		      url('iconfont.ttf') format('truetype'),
 		      url('iconfont.svg#iconfont') format('svg');
 		}
-
+		.qrCode{
+			width: 100%;
+			height: 2.12rem;
+			position: absolute;
+			bottom: 0.29rem;
+		}
+		.qrCode img{
+			height: 1.91rem;
+			vertical-align: top;
+		}
+		.code{
+			border:1px black solid;
+			border-radius: 4px;
+			width: 2.1rem;
+			height: 2.1rem;
+			display: inline-block;
+		}
 	</style>
 </head>
 <script>
@@ -108,6 +124,13 @@
 					数据截止至1月14日,如已充值,请忽略本次提醒哦!<span class="iconfont20">&#xe6c3;</span><span class="iconfont">&#xe6c3;</span><span class="iconfont12">&#xe6c3;</span></p>
 					
 				</div>
+		</div>
+		<div class="qrCode">
+			<div class="code">
+				
+			</div>
+			<img src="./images/qrCode.png" alt="">
+			
 		</div>
 		
 	</div>
