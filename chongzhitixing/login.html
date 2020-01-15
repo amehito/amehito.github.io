@@ -89,6 +89,10 @@
 
 	</style>
 </head>
+<script>
+
+
+</script>
 <body>
 	<div class="bg">
 		<div class="logo">
@@ -101,7 +105,7 @@
 				<div class="sentence">
 
 					<p><span class="iconfont12">&#xe6c3;</span><span class="iconfont">&#xe6c3;</span><span class="iconfont20">&#xe6c3;</span>
-					数据截至至1月14日，如已充值，请忽略本次提醒哦!<span class="iconfont20">&#xe6c3;</span><span class="iconfont">&#xe6c3;</span><span class="iconfont12">&#xe6c3;</span></p>
+					数据截止至1月14日,如已充值,请忽略本次提醒哦!<span class="iconfont20">&#xe6c3;</span><span class="iconfont">&#xe6c3;</span><span class="iconfont12">&#xe6c3;</span></p>
 					
 				</div>
 		</div>
@@ -109,4 +113,10 @@
 	</div>
 	
 </body>
+<script>
+	window.onload = ()=>{
+		const wid = document.documentElement.clientWidth/35;
+		document.querySelector('.sentence').style.fontSize= wid + 'px'
+	}
+</script>
 </html>
