@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>托克小助手</title>
+
+	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<script src="./js/rem.js"></script>
+
+	<style>
+		body,html{
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+		.bg{
+			width: 100%;
+			height: 100%;
+			background-image: url('./images/bg.png') ;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+		}
+
+		.logo img{
+			width: 100%;
+		}
+		.talkBox{
+			padding-top: 2.76rem;
+			position: absolute;
+		}
+		.talkBox img{
+			width: 100%;
+		}
+		.talks{
+			position: absolute;
+			z-index: 5;
+			width: 100%;
+			left: 0;
+			top: 2.9rem;
+		}
+		.sentence{
+		    position: relative;
+		    top: -0.9rem;
+		    font-size: 8px;
+		}
+		.iconfont12 {
+			color: red;
+			font-family: "iconfont" !important;
+			font-size: 12px;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.iconfont20 {
+			color: red;
+			font-family: "iconfont" !important;
+			font-size: 14px;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.iconfont {
+			color: red;
+			font-family: "iconfont" !important;
+			font-size: 16px;
+			font-style: normal;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		@font-face {
+		  font-family: 'iconfont';
+		  src: url('iconfont.eot');
+		  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+		      url('iconfont.woff2') format('woff2'),
+		      url('iconfont.woff') format('woff'),
+		      url('iconfont.ttf') format('truetype'),
+		      url('iconfont.svg#iconfont') format('svg');
+		}
+
+	</style>
+</head>
+<body>
+	<div class="bg">
+		<div class="logo">
+			<img src="./images/logo.png" alt="">
+			
+		</div>
+		<div class="talkBox">
+				<img src="./images/border.png" alt="" class="border">
+				<img src="./images/talks.png" alt="" class="talks">
+				<div class="sentence">
+
+					<p><span class="iconfont12">&#xe6c3;</span><span class="iconfont">&#xe6c3;</span><span class="iconfont20">&#xe6c3;</span>
+					数据截至至1月14日，如已充值，请忽略本次提醒哦!</p>
+					<span class="iconfont20">&#xe6c3;</span><span class="iconfont">&#xe6c3;</span><span class="iconfont12">&#xe6c3;</span>
+				</div>
+		</div>
+		
+	</div>
+	
+</body>
+</html>
