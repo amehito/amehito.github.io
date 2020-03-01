@@ -19,7 +19,7 @@
 </head>
 <body>
 <script type="text/javascript">
-    $.get('map/json/china.json', function (chinaJson) {
+    $.get('js/map/wenzhou.json', function (chinaJson) {
     echarts.registerMap('china', chinaJson);
     var chart = echarts.init(document.getElementById('mychart'));
     chart.setOption({
