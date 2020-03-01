@@ -1,0 +1,5 @@
+app.36635a48.js
+}), e.getZr().on("click", (function(e) {
+cityData = {
+sickData = {
+color: ["#ffffff", "#feeeef", "#fcc7b7", "#ff9d88", "#ff6c4a", "#ff3b07"]
