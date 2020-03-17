@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>登记</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/rem.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+        <script src="js/move.js"></script>
+
+    <style>	
+		.yonghuFont{
+			font-size: 15px;
+		    width: 70%;
+		    text-align: left;
+		    margin: 0 auto;
+		    position: absolute;
+		    top: 11rem;
+		    left: 1.2rem;
+		}
+    	.font{
+    		color: white;
+    		font-size: 18px;
+    		width: 70%;
+    		text-align: left;
+    		margin:0 auto;
+    	}
+    	
+		.fontImg{
+		    position: absolute;
+		    width: 100%;
+			}
+
+    
+    	
+		.jiantou{
+			position: absolute;
+			bottom: -0.2rem;
+			left: 3.5rem;
+		}
+		.formTable{
+			display: none;
+			margin-top: 4rem;
+			font-size: 14px;
+		}
+		.searchBtn{
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 1;
+		    margin-right: 0;
+		    color: white;
+		    width: 5.5rem;
+		    height: .8rem;
+		    padding: 0.2rem 0.2rem;
+		    background-color: rgb(38,131,213);
+		    border: 1px solid white;
+		    border-radius: 5px;
+		    border-right: none;
+		    display: inline;
+		}
+		option{
+			background-color: white;
+		}
+		.spanDiv{
+			vertical-align: top;
+		    line-height: 1;
+		    margin-right: 0;
+		    color: white;
+		    width: 2rem;
+		    height: 0.8rem;
+		    padding: 0.2rem 0.2rem;
+		    background-color: rgb(38,131,213);
+		    border: 1px solid white;
+		    border-top-left-radius: 4px;
+		    border-bottom-left-radius: 4px;
+		    border-right: none;
+		    display: inline-block;
+		}
+		.notSearchBtn{
+			margin-left: -.1rem;
+		    height: .8rem;
+		    width: 3.5rem;
+		    padding: 0 1em;
+		    border: 1px solid rgb(106,184,226);
+		    border-top-right-radius: 4px;
+		    border-bottom-right-radius: 4px;
+		    display: inline;
+		}
+
+		.formItem{
+			margin-bottom: .2rem;
+		}
+		.bgcolor {
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, .7);
+			position: absolute;
+			top: 0;
+			overflow: hidden;
+		}
+		.modal {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			z-index: 500;
+		}
+		.modalBg{
+			width: 6rem;
+			height: 3.5rem;
+			background-color: rgba(0, 0, 0, .9);
+			background-size: 100% 100%;
+			overflow: hidden;
+			position: relative;
+			left: .75rem;
+			top: 4.5rem;
+			padding-top: 1rem;
+			color: white;
+			font-size: .5rem;
+		}
+
+		.modalBg1 {
+			font-size: 14px;
+			width: 5rem;
+			height:4rem;
+			background: url(./imgs/modalBg.png) no-repeat;
+			background-size: 100% 100%;
+			position: absolute;
+			left: 1.3rem;
+    		top: 3.5rem;
+    		border: none;
+    		border-radius: 7px;
+			/*top: 2rem;
+			left: .95rem;*/
+		}
+
+		.modalBg3 {
+			width: 5.6rem;
+			height:10.6rem;
+			background: url(../img/kuang2.png) no-repeat;
+			background-size: 100% 100%;
+			position: absolute;
+			top: .6rem;
+			left: .95rem;
+		}
+		.modalContent{
+			font-size: 16px;
+			color: rgb(43,112,213);
+			margin-top: .35rem;
+			font-weight: 700;
+		}
+		.modalContent1{
+			font-size: 12px;
+			margin-top: .2rem;
+			font-weight: 700;
+		}
+		.modalContent2{
+			font-size: 16px;
+			margin-top: 1.7rem;
+			font-weight: 700;
+		}
+		.modalAllCont{
+			padding-top: .5rem;
+		}
+		.close img{
+			width: .5rem;
+		    z-index: 501;
+		    position: absolute;
+		    right: 1.25rem;
+		    top: 3.5rem;
+		}
+		.toLightingBtn{
+			top: 6rem;
+		    position: absolute;
+		    left: 1.8rem;
+		    width: 4rem;
+		    height: 0.7rem;
+		    border: none;
+		    border-radius: .35rem;
+		    background: rgb(39,130,213);
+		    color: white;
+		    font-weight: 700;
+		}
+		#ui-id-1{
+			font-size: 14px;
+			left: 1rem;
+			position: absolute;
+			background: white;
+			width: 3.5rem;
+		}
+		.ui-helper-hidden-accessible{
+			display: none;
+		}
+		.shengji{
+
+		}
+		.wenzi{
+			font-size: 16px;
+		    color: white;
+		    margin-top: 4.7rem;
+		}
+		.dianliangshengji{
+		    font-family: serif;
+		    top: 9.2rem;
+		    font-weight: 800;
+		    font-size: 22px;
+		    position: absolute;
+		    left: 2rem;
+		    width: 3.63rem;
+		    height: 1rem;
+		    border: none;
+		    border-radius: .5rem;
+		    background: rgb(44,203,255);
+		    color: white;
+		}
+		.InputForm{
+			position: absolute;
+		    top: 5.5rem;
+		    font-size: 12px;
+
+		}
+		.inputItem{
+			left: 1rem;
+    		position: relative;
+    		text-align: left;
+		}
+		.iconName{
+			display: inline-block;
+    		font-weight: 800;
+		}
+		.inputItem img{
+			width: .3rem;
+		}
+		.inputItem input{
+			position: relative;
+    		left: 0.5rem;
+			margin-top: .1rem;
+			margin-bottom: .3rem;
+			width: 5rem;
+			height: .65rem;
+			border:1px solid #00002429;
+			border-radius: 4px;
+			display: block;
+			padding-left: 0.2rem;
+		}
+		.sub{
+			background: url(./imgs/sub.png) no-repeat;
+		    width: 5.68rem;
+		    height: 1.06rem;
+		    border: none;
+		    background-size: 100% 100%;
+		    position: relative;
+		    left: .8rem;
+		    top: .5rem;
+		    font-size: 21px;
+    font-weight: 500;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+
+    
+
+   
+</script>
+<div class="top">
+	<img src="imgs/top.png" alt="">
+</div>	
+<div class="bottom">
+</div>
+<div class="bg" id="bg">
+	
+    <div class="fontImg">
+    	<img src="./imgs/logo.png" alt="">
+    </div>
+    <div class="fontImg">
+    	<img src="./imgs/inputForm.png" alt="">
+    </div>
+    <div class="fontImg">
+    	<img src="./imgs/logo2.png" alt="">
+    </div>
+    <div class="InputForm">
+    	<div class="inputItem">
+    		<div class="leftInfo">
+    			<img src="./imgs/xianshi.png" alt="">
+    			<p class="iconName">   县  市</p>
+    		</div>
+    		<input type="text" placeholder="请输入县市">
+
+    	</div>
+    	<div class="inputItem">
+    		<div class="leftInfo">
+    			<img src="./imgs/xingming.png" alt="">
+    			<p class="iconName">   姓  名</p>
+    		</div>
+    		<input type="text" placeholder="请输入姓名">
+
+    	</div>
+    	<div class="inputItem">
+    		<div class="leftInfo">
+    			<img src="./imgs/haoma.png" alt="">
+    			<p class="iconName">   联系号码</p>
+    		</div>
+    		<input type="text" placeholder="请输入联系号码">
+
+    	</div>
+    	<div class="inputItem">
+    		<div class="leftInfo">
+    			<img src="./imgs/dizhi.png" alt="">
+    			<p class="iconName">   地址住址</p>
+    		</div>
+    		<input type="text" placeholder="请输入地址住址">
+
+    	</div>
+    	<div class="inputItem">
+    		<div class="leftInfo">
+    			<img src="./imgs/beizhu.png" alt="">
+    			<p class="iconName">   备  注</p>
+    		</div>
+    		<input type="text" placeholder="请输入备注">
+
+    	</div>
+
+    	<button class="sub">提交</button>
+    </div>
+ 
+</div>
+
+</body>
+</html>
