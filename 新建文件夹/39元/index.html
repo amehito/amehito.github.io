@@ -277,7 +277,7 @@
     		</div>
     	</div>
     	<div class="inputitem">
-    		<p class="inputitemp" >区域</p>
+    		<p class="inputitemp" >社区</p>
     		<select class="inputItemInputXiang" id="xiang"></select> 
     	</div>
 
@@ -287,43 +287,77 @@
     		<button class="mapBtn">地图选择</button>
     	</div>
     	<button class="subBtn">点击办理</button>
-    	<div style="width: 80%;height: 250px;left: 10%;" id='container'></div>
+    	<div id="mapModal">
+		<p><strong style="color: black">安卓用户</strong>无法在微信窗口自动定位，
+		<br>第一步打开“位置”开关；第二步点击右上角“...”，选择“在浏览器打开”进行“地图选择”</p>
+    	<div style="width: 100%;height: 5rem;" id='container'></div>  
+    	<button class="confirmBtn">确定</button>  		
+    	</div>
 
     </div>
   
     
  
 </div>
-		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=68b686a185b14f63bd3d7b9211606a99"></script>
-
+<!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=68b686a185b14f63bd3d7b9211606a99"></script> -->
 <script>
+	const scriptUrl = `https://webapi.amap.com/maps?v=1.4.12&key=68b686a185b14f63bd3d7b9211606a99`
+	function downloadJSAtOnload() {
+	   var element = document.createElement("script");
+	   element.src = scriptUrl;
+	   document.body.appendChild(element);
+
+  	}
+	window.onload=()=>{
+		
+		downloadJSAtOnload()
+
+		loadMap()
+		
+	}
+	function loadMap(){
+		try{
+			mapInit()
+		}
+		catch(err){
+			console.log(err)
+			downloadJSAtOnload();
+			setTimeout(loadMap, 1000);
+		}
+	}
 	// 实例化地图， 命名定位插件实例、标记实例、地理编码实例、输出变量
 	let show = false;
+	document.querySelector('.confirmBtn').addEventListener('click',()=>{
+		$('#mapModal').hide()
+	})
 	document.querySelector('.mapBtn').addEventListener('click',  toggieMap);
+
 	function toggieMap(){
-		if(show){
-			$('#container').hide()
-			document.querySelector('.mapBtn').innerText = '地图选择'
+		// if(show){
+		// 	$('#mapModal').hide()
+		// 	document.querySelector('.mapBtn').innerText = '地图选择'
 
-		}
-		else{
-			$('#container').show()
-			document.querySelector('.mapBtn').innerText = '确认'
+		// }
+		// else{
+			$('#mapModal').show()
+		// 	document.querySelector('.mapBtn').innerText = '确认'
 
-		}
+		// }
 
 		show = !show;
 		console.log(1)
 	}
+		function mapInit(){
 			var map = new AMap.Map('container', {
 					resizeEnable: true,
-					zoom: 16,
+					zoom: 20,
 //					center: [120.725587,28.012734]
 				}),
-				geolocation = null,
-				Marker = null,
-				geocoder = null,
-				result = document.getElementById('info');
+			geolocation = null,
+			Marker = null,
+			geocoder = null,
+			result = document.getElementById('info');
+			console.log(map)
 			// 添加地图全局移动事件
 			// 移动中
 			AMap.event.addListener(map, 'dragging', function() {
@@ -424,9 +458,15 @@
 					Marker.setMap(map);
 				}
 			};
+			// aMap = map.getMap();//得到aMap对象
+			// let latLng = new LatLng(27.71701,120.64256);//构造一个位置
+			// aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,11));
+		}
 	 	$(function() {
 	    $( "#datepicker" ).datepicker();
-	    $('#container').hide()
+	    $('#mapModal').hide()
+
+
 	  });
 			 jQuery(function($){ 
                 $.datepicker.regional['zh-CN'] = { 
@@ -16783,7 +16823,7 @@ data.forEach(xian =>{
 // `
 '<option value= "'+xian.name + '">'+xian.name+'</option>'
 })
-document.querySelector('#xian').addEventListener('click',()=>{
+document.querySelector('#xian').addEventListener('blur',()=>{
 	const name = document.querySelector('#xian option:checked').value
 	const j = document.querySelector('#qu')
 	j.innerHTML = ''
@@ -16795,7 +16835,7 @@ document.querySelector('#xian').addEventListener('click',()=>{
 	})
 })
 
-document.querySelector('#qu').addEventListener('click',()=>{
+document.querySelector('#qu').addEventListener('blur',()=>{
 	const xianName = document.querySelector('#xian option:checked').value
 	const name = document.querySelector('#qu option:checked').value
 	const j = document.querySelector('#xiang')

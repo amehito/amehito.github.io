@@ -9,6 +9,20 @@
     max-width: 100%;
 
 }
+#mapModal{
+    width: 6rem;
+    display: block;
+    position: absolute;
+    top: -1rem;
+    background: #aaa;
+}
+#mapModal button{
+    width: 6rem;
+    height: 1rem;
+    color: white;
+    background: #4196ff;
+    font-size: 18px;
+}
 .bg1{
     width: 7.5rem;
     height: 150%;

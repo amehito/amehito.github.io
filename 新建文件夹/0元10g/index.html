@@ -46,12 +46,11 @@
     	<div class="wenzi">
   	</div>	
 	<input type="number" id="inputNumber" placeholder="请输入电话号码">
-   <button class="dianliangshengji">点击办理</button>
+   <img src="imgs/lingqu.png" class='lingquImg' alt="">
    
 	<p class="yonghuFont">
 		新申领用户，可享0元赠送10GB国内流量。赠送流量立即生效，使用有效期截至月底最后一天。到期自动失效、不可结转、不可共享。优先级高于套餐流量、满就送流量和夜间流量。
 	</p>
-	<input type="text">
 	 <div class="modal" id="yes"  style="display: none;">
 			    <div class="bgcolor">
 
@@ -71,6 +70,9 @@
 </div>
 <script>
 	$('#yes').show();
+$(".close").click(function() {
+            $(".modal").hide();
+        });
 </script>
 </body>
 </html>
