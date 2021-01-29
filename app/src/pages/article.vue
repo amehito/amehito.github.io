@@ -1,32 +1,56 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+   <h1> 一、闭环思维</h1>
+
+    打比方说，中学时期，你身为数学课代表，老师吩咐你收作业的时候。你听到老师的命令，且动身依次向每位同学收到了作业，然后直接放在了讲台上或者老师办公室，完成了任务，离开。
+
+    在我没意识到闭环思维以前，我认为这样做是没什么问题的。但如果站在老师的角度想，整个过程中他没有收到任何反馈，他不知道你有没有去做了，也不知道有没有谁没交作业，假如你没去收作业他又得催一下你（麻烦），或者是自己去再收一次作业，此时可能得到的反馈是你已经收了他没看到（同样麻烦）。造成的结果是，由于缺乏交流，你和老师两个人都需要做更多的工作。
+
+    所谓闭环思维，就是说，当你身为某项行为的发起者时，你需要做的不仅仅是完成这份工作，更需要让指派给你这项工作的人知道你做了没，做得怎么样。假如没完成，是出于什么原因，是否需要帮助等。不管做的如何，一定要给出反馈，形成闭环。做到事事有回音，件件有着落。
+
+    惭愧的说，在工作上我这一点做的十分糟糕。交代给我的事，经常忘记一些细节，且没有反馈，事成之后自己都忘记，领导问起来，我也不太清楚，用一些类似于”应该吧“，”大概“，”好像“的字眼。设身处地的想，这样子的我，我自己也不大能信任。
+
+
+
+    <h1>二、成长性思维</h1>
+
+    ”成长性思维“对立面叫”固定性思维“，后者面对问题常常给自己评估下结论后就固定在此了。比如，有一个面试机会，但是要求全程讲英语。固定性思维者首先会评估一下自己能不能胜任，能则去不能则不去。这样子的结果就是认为自己办得到的人，下次有需要用到英语的其他机会，他还可以去，且一次比一次棒，而认为自己不可以，办不到的人，恐怕在被他人否定之前就先把自己否定了。而相对应的，成长性思维者会想，不管能不能行，假如我需要这次机会，那就去。去了后发现不行，还可以回来继续准备，下次有相似机会说不定就行了。因此，成长性思维者容易出丑、容易面对更多失败，但也因此收获成长。
+
+    我们每个人都会有这两种思维，某些擅长的领域，成长性思维占上风，但又在一些害怕的、没兴趣的领域，固定性思维占了上风。这很正常，成长需要精力和大量时间。只是，有些人在生活上、职业上固定思维，认为自己这也不行那也不行，到了游戏里，反而精力充沛、“欲与天公试比高”，这我就得好好劝你一句，早点意识到自己的固定性思维，并改变他。
+
+    那么，说到改变，要从哪里开始改变呢？
+
+    很简单，三步走。
+
+    1.理解大脑的可塑性
+
+    人不是天生会一切，所有人做的事都需要一段时间学习。学习可以改变大脑。
+
+    我们的大脑和肌肉一样，可塑性很强。大脑中神经元之间负责传递信息的组织叫做“突触”，突触会根据环境的刺激不断生长。当我们每次突破自己的舒适区去学习新的知识，迎接新的挑战，就会产生新的突触。当强化已有的知识和技能时，突触就会得到巩固。而让我们变得更加聪明的大脑灰质，就是从这些新的突触中形成的。也就是说，经常通过思维训练，你会变得更加聪明。
+
+    2.注重过程
+
+    唯物主义者探索世界的过程绝对不是拍着脑袋就能想出来的，所谓“没有调查权就没有发言权”。而调查，主要是针对过程深入调查。你调查的越多，你经历的越多，你的大脑学会的也就越多。等到你的大脑把知识结构架在你自己的知识体系上后，结果的产生就会是顺其自然的。且可类比，可迁移到类似的其他方方面面，受益终生。
+
+    3.跳出舒适区
+
+    跳出舒适区目的不是为了找罪受，而是获得更大的舒适区，舒适区越大，你的适应能力就越强。假如你的舒适区像一个婴儿仅仅只有在母亲的怀里，那么你只能接受母亲一走就会难受的呜呜大哭。人总会被迫面对更多的困难与磨练，早点做准备，跳出舒适区。
+
+
+
+    <h1>三、批判性思维</h1>
+
+    批判性思维相比以上两者，反而比较容易获得。尤其是当你看过大量的不同的人不同的看法之后。假如你第一次看别人所说的，容易觉得公说公有理，婆说婆有理。那么在大量反复的阅读形成了自己的体系后，开始反对权威有自己的看法，这太正常了。
+
+    但是我要说的，不仅如此。
+
+    批判，不止在批判别人，更是批判自己。
+
+    自己的想法会不会在某种程度上井底之蛙，带不带偏见、情绪，有没有做到公正不偏袒。
+
+    人们总是觉得别人说的是错的、有偏见的、不妥的，以偏概全的，不客观的。却不愿意考虑到自己也说了许多夹杂着情绪的话语。这些都有碍于正常交谈，甚至不如不谈。有时候会会想起当初说的话，可又难以避免的在下一次重复犯傻。
+
+    人贵有自知之明，某种程度上来说，也在于是否有对自己的批判性思维。
   </div>
 </template>
 
